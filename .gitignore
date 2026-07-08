@@ -1,3 +1,5 @@
-design-test/static
-design-test/public
+static/out.css
+public
 *.m4a
+events.json
+node_modules

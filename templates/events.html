@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- THIS TEMPLATE IS BASICALLY A PLACEHOLDER UNTIL WE HAVE THESE REGULARLY FLOWING IN -->
+<main class="m-16" style="width: calc(100% - var(--spacing) * 32);">
+    <h1 class="title text-center">
+        {{ page.title }}
+    </h1>
+    <img class="article-image"
+                    src="/perspectives/{{page.extra.image}}" alt="{{page.extra.imageAlt}}" />
+        <div class="text-center flex flex-col justify-center items-center">
+    <!-- <p class="subtitle"><strong>{{ page.date }} Written by {{ page.authors | join(sep=", ") }}</strong>
+    
+    </p> -->
+            {{ page.content | safe }}
+        </div>
+</main>
+{% endblock content %}

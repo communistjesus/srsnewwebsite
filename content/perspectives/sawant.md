@@ -1,0 +1,16 @@
++++
+title = "The SRS Endorses Kshama Sawant for Congress! "
+date = 2026-04-27
+authors = ["Steve Leigh"]
+[extra]
+image = "sawant.webp"
+imageAlt = "A poster with revolutionary Kshama Sawant calling the reader to send Sawant to congress"
++++
+
+The Seattle Revolutionary Socialists hereby announces its endorsement of Kshama Sawant's campaign to represent Washington's 9th district in the U.S. House of Representatives. Normally, our organization does not endorse political candidates for electoral office, even so-called "socialist" ones, because invariably they run in the Democratic Party and end up disappointing the activists who put them in office. Figures like Brandon Johnson, Alexandria Ocasio-Cortez, Bernie Sanders, Zohran Mamdani and others come to mind as prominent examples of politicians who put forth a progressive veneer on the campaign trail, only to break strikes, expand police budgets, and send more bombs to Israel once they're in office. Even our local "socialist" mayor Katie Wilson, whom we declined to support, predictably ended up coming out in support of surveillance cameras and engaged in apologetics for sweeps not even a year into her tenure.
+
+What makes Sawant different from the rest is her commitment to independence from the major capitalist parties, and her track record to prove it. Sawant is supported by her organization Workers Strike Back, an independent, left-wing organization funded by the dues of regular working class people; she is not running as a Democrat like the rest of the disappointments we've listed. She doesn't take dark money from capitalists nor does she try to make friends with Democratic Party politicians; instead, she understands that winning change for regular people is an uphill battle, and that she will not make many friends in the world's oldest capitalist party by doing so.
+
+Sawant spent 10 years as the lone socialist city councilor in Seattle. In her time, she won victory after victory for working class people, including a $15 minimum wage, numerous renter protections, the Amazon tax, and more. She tirelessly worked to expose the Democrats on the city council for their attempts to stymie progressive change and half-hearted, false promises to working people. This approach won her no friends among the Democrats - but did win her the admiration of working class people in her district and beyond. Hence why, despite all the lies, slander and recall elections, she always managed to defeat her corporate opponents.
+
+Sawant is running against Adam Smith, a notorious Democratic Party warmonger who, among other things, voted for the Iraq war, vociferously supported Israel's genocide in Gaza, and architected ICE. He is bankrolled by war profiteers like Lockheed Martin, Boeing, and Raytheon. While we believe that all Democrats are fundamentally our enemies, it would bring us great pleasure to see Adam Smith in particular unseated given his comparatively heinous track record against working people. While we have political differences with Sawant and her organization, we believe her campaign is an excellent opportunity for the left to expose the Democratic Party and build progressive movements. We call upon all genuinely progressive organizations and class-conscious workers to support her campaign.

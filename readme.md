@@ -1,9 +1,6 @@
 # SRS Design System
 
 ## TODO
-
-- split out into pages
-- add button page
 - implement SRS website without individual blogs
 - generalize into template that makes instantiating national website easy
 - national website
@@ -50,11 +47,17 @@ The bot uses the `harper` grammar checker, accessible via pipeline "gate" and `h
 
 #### Dependencies
 
-You must install `zola` (via cargo) and `tailwindcss` (via nix). In the future, this will all be pushed into a `Dockerfile` and `podman-compose.yml` so that a rootless `podman` install is all that is required. This work should preserve the continuous watch/build tooling described below.
+You must install `python`, `zola` (via cargo) and `tailwindcss` (via nix). In the future, this will all be pushed into a `Dockerfile` and `podman-compose.yml` so that a rootless `podman` install is all that is required. This work should preserve the continuous watch/build tooling described below.
+
+To generate events from the source events (historical), run `./scripts/generate-events.sh`
 
 For basic developer flow, run `zola serve` in one terminal tab and `./scripts/build-styles.sh` in another terminal tab. These respectively watch and build templates, markdown and styles to enable rapid iteration. Visit [http://127.0.0.1:1111/](http://127.0.0.1:1111/) to see the website update as you edit files. I recommend you have the `build-styles` tab active as your browser will tell you where the non-style build fails.
 
-TODO: document language servers/dev setup
+#### TODO: document language servers/dev setup
+
+#### Decison: We rely on the actual tailwind stylesheet
+
+We need to find or create something to extract the classes we use (this would be tiny)
 
 #### Generating website
 

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <section class="p-2 text-black text-center" style="background-color: var(--primary-bg-color);">
+        <div class="pb-2">
+            <h2 style="font-family: 'Anton'; color: white;">Events</h2>
+            <div style="color: black;">We plan on having a presence at these events. Join us here to meet us in the
+                streets.</div>
+    </section>
+    <!-- for some fucked up reason, zola does not support tera's current support for list comprehension -->
+    <!-- worse even, spread for arrays does not work, so we must fully desugar to sets -->
+    <!-- even worse, this entails some weird super deeply nested list to get this working -->
+    <!-- so the flow for working over loops is build up some deeply nested list, then denest it -->
+    <!-- we gotta get this patched upstream -->
+    {% set data = load_data(path="events.json") -%}
+    {% for event in data.events %}
+    <!-- we need to add .title, extra.location .date .extra.image .extra.imageAlt -->
+    <section class="p-1 flex flex-row justify-baseline items-center align-center w-1/2" style="margin: 0 auto;">
+        <div class="p-1 flex items-center min-size-lg-screen-article-image-container-smal"><a class="block" href="#">
+                <img width="75" class="article-image" style="max-width: none; max-height: none;"
+                    src="/events/{{event.image}}" alt="{{event.imageAlt}}" />
+            </a></div>
+        <div class="p-1 article-image">
+            <strong> <a href="#">{{ event.title }}</strong>
+            <div>{{event.date}} <em>{{event.location}}</em></div>
+            <!-- could add a rvsp section -->
+        </div>
+    </section>
+    {% endfor %}
+</main>
+
+
+{% endblock content %}

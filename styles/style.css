@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+@theme {
+  --spacing: 0.25rem;
+}
+
+h1 {
+  @apply font-bold text-4xl tracking-tight leading-tight mb-6;
+}
+
+.block-auto {
+    margin: 0 auto;
+    display: block;
+}
+
+img {
+    @apply block-auto;
+    max-width: 50%;
+    max-height: 50%;
+}
+
+/* tolerate if they add another line */
+img + em, p:has(img) + p em {
+    @apply block-auto text-center;
+}
+blockquote + em, blockquote + p em {
+    @apply block-auto text-center;
+}
+
+body {
+    font-family: 'Poppins';
+    color: white;
+    background-color: black;
+}
+
+.social-media-icon {
+    height: 50px;
+    width: 50px;
+}
+
+.highlight {
+    @apply mx-10 my-4 text-wrap;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Poppins-Bold';
+}
+
+h1 {
+    font-size: 4rem;
+    font-family: 'Anton';
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: 'PoppinsBold';
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: 2.5rem;
+    font-family: 'PoppinsBold';
+}
+
+h4 {
+    font-size: 2rem;
+    font-family: 'PoppinsBold';
+}
+
+h5 {
+    font-size: 1.5rem;
+    font-family: 'PoppinsBold';
+}
+
+h6 {
+    font-size: 1rem;
+    font-family: 'PoppinsBold';
+}
+
+p {
+    @apply p-4 text-left w-full md:w-1/2;
+}
+
+strong {
+    font-family: 'PoppinsBold';
+    text-transform: uppercase;
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('Anton.ttf');
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'PoppinsBold';
+    src: url('Poppins-Bold.ttf');
+}
+
+@media only screen and (max-width: 640px) {
+    .acc-flex-dir {
+        @apply flex-col;
+    }
+}
+@media only screen and (min-width: 641px) {
+    .acc-flex-dir {
+        @apply flex-row;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .acc-flex-dir-rev {
+        @apply flex-row;
+    }
+}
+@media only screen and (min-width: 641px) {
+    .acc-flex-dir-rev {
+        @apply flex-col;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .article-image {
+        max-width: 90%;
+        max-height: 90%;
+    }
+}
+
+@media only screen and (min-width: 720px) {
+    .min-size-lg-screen-article-image-container {
+        width: 500px; height: 500px;
+    }
+}
+@media only screen and (min-width: 720px) {
+    .min-size-lg-screen-article-image-container-small {
+        width: 75px; height: 75px;
+    }
+}
+
+:root {
+  --primary-bg-color: #f2161e;
+}
+
+.btn:hover {
+    color: black;
+    background-color: white;
+}
+
+.btn:active {
+    background-color: #737373;
+    color: white;
+}
+
+.single-column div, .single-column h2 {
+    @apply p-4 md:w-3/4;
+    margin: 0 auto;
+}

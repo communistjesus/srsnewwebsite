@@ -1,7 +1,7 @@
 # SRS Design System
 
 ## TODO
-- implement SRS website without individual blogs
+- add tailwindcss contact form + 2 captcha endpoints (get captcha + submit captcha (requires some POW code))
 - generalize into template that makes instantiating national website easy
 - national website
 
@@ -43,56 +43,45 @@ Once this passes, editors can do their checks
 
 The website uses `Zola`, which exposes the `tera` (jinja-like) template engine along with a CommonMarkdown-like interface for generating static websites. We use templates and `tailwindcss` via the `@apply` to "apply" tailwind classes and some custom styles to generated HTML elements.
 
-The bot uses the `harper` grammar checker, accessible via pipeline "gate" and `harper-wasm` for the grammar enabled article editing UI. The discord bot uses `Rust` and `discord_sdk` for developer accessibility and consistency with other projects (all of `Zola`, `harper`, `tera`, `tailwindcss` use `Rust`).
+The bot uses the `harper` grammar checker, accessible via pipeline "gate" and `harper-wasm` for the grammar enabled article editing UI. The discord bot uses `Rust` and `discord_sdk` for developer accessibility and consistency with other projects (all of our POW Captcha, `axum`, `pnpm`, `Zola`, `harper`, `tera`, `tailwindcss` use `Rust`). We deploy our Rust webserver to Cloudflare workers via `wasm`. 
 
 #### Dependencies
 
-You must install `python`, `zola` (via cargo) and `tailwindcss` (via nix). In the future, this will all be pushed into a `Dockerfile` and `podman-compose.yml` so that a rootless `podman` install is all that is required. This work should preserve the continuous watch/build tooling described below.
+Install `podman`, `vscode` and the remote extension for vscode that lets you "ssh" into containers. Run `podman compose up` and open the container with vscode to get started.
 
 To generate events from the source events (historical), run `./scripts/generate-events.sh`
 
-For basic developer flow, run `zola serve` in one terminal tab and `./scripts/build-styles.sh` in another terminal tab. These respectively watch and build templates, markdown and styles to enable rapid iteration. Visit [http://127.0.0.1:1111/](http://127.0.0.1:1111/) to see the website update as you edit files. I recommend you have the `build-styles` tab active as your browser will tell you where the non-style build fails.
+For basic developer flow, run `zola serve` in one terminal tab and `npm run styles` in another terminal tab. These respectively watch and build templates, markdown and styles to enable rapid iteration. Visit [http://127.0.0.1:1111/](http://127.0.0.1:1111/) to see the website update as you edit files. I recommend you have the `build-styles` tab active as your browser will tell you where the non-style build fails.
+
+If you want to run the web server locally, then run the static file server via `npm run dev`. This will generate events, build styles and build the markdown into html
+
+#### Security
+
+DO NOT EVER HAVE A PHYSICAL `.env` file on the worker.
+
+DO NOT LEAK SQSP API KEY
+
+ANY NEW DEPS WILL GET YOUR PR REJECTED
+
+DO NOT RUN ANY PIPELINE ON PUSH/PR OTHER THAN MAIN WHICH IS BRANCH PROTECTED
 
 #### TODO: document language servers/dev setup
+
+For now: `rust-analyzer` extension on vscode will pipe the output of `rust-analyzer` into vscode. 
 
 #### Decison: We rely on the actual tailwind stylesheet
 
 We need to find or create something to extract the classes we use (this would be tiny)
 
-#### Generating website
+#### Deployment
+
+We deploy the website via Cloudflare Workers. We use the `worker` crate and avoid any use of CloudFlare primitives to avoid vendor lock in.
+
+Deploy via `pnpm run deploy`. Currently, the website is deployed [here](https://axum-on-workers.redham28.workers.dev/). This will be updated when the deploy is moved to the official SRS Cloudflare account. The SQSP key is set via environment variable locally and via secret on CF worker.
 
 ## Considerations
 
 ### Unknowns
 
 - left link at bottom to more recent article, right link at bottom to less recent article
-
-### SRS Design Guidance
-
-main 1 color: black
-main 2 color: #F2161E
-accent color: white
-
-
-#### buttons
-
-resting state: white/black text on red background
-hover: black on white
-click: white on grey (#737373)
-
-#### font
-
-title font for titles, Anton (~5x size of body size, vary size for mobile)
-subheading between title and body
-
-subheading/accent is always all caps, only important information, poppins bold
-
-body is poppins
-
-#### general guidance
-
-sharp angles
-
-negative space
-
-TODO: grab svgs
+- hook search up

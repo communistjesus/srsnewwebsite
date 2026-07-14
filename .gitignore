@@ -3,3 +3,14 @@ public
 *.m4a
 events.json
 node_modules
+exported_pages
+posts
+squarespace-export-to-markdown
+squarespace-xml-to-markdown
+squarespace.xml
+.pnpm-store
+target
+.wrangler
+nohup.out
+*.wasm
+dist

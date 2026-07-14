@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+		"deploy": "pnpm run gen-events && pnpm run styles-build && zola build && cargo install worker-build ; wrangler deploy",
+		"dev": "pnpm run gen-events && pnpm run styles-build && zola build && cargo install worker-build ; wrangler dev --local",
+    "styles": "pnpm exec tailwindcss --watch -i ./styles/style.css -o ./static/out.css",
+    "styles-build": "pnpm exec tailwindcss -i ./styles/style.css -o ./static/out.css",
+    "gen-events": "python3 scripts/generate_source_events.py"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "wrangler": "^4.110.0"
+  }
+}
